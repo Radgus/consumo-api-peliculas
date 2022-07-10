@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Radgus/consumo-api-peliculas/issues"
   },
-  "homepage": "https://github.com/Radgus/consumo-api-peliculas#readme"
+  "homepage": "https://github.com/Radgus/consumo-api-peliculas#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
