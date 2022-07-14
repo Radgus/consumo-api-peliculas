@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="./styles/app.css" />
 
   <title>PlatziMovies</title>
@@ -20,7 +21,7 @@
 
     <form id="searchForm" class="header-searchForm">
       <input type="text" placeholder="Vengadores" />
-      <button>🔍</button>
+      <button id="searchBtn">🔍</button>
     </form>
   </header>
 
@@ -31,29 +32,13 @@
     </div>
 
     <article class="trendingPreview-movieList">
-      <div class="movie-container">
+      <!-- <div class="movie-container">
         <img
           src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
           class="movie-img"
           alt="Nombre de la película"
         />
-      </div>
-
-      <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div>
-
-      <div class="movie-container">
-        <img
-          src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-          class="movie-img"
-          alt="Nombre de la película"
-        />
-      </div>
+      </div> -->
     </article>
   </section>
 
@@ -156,6 +141,8 @@
   <footer>Hecho con amor en Platzi por @juandc</footer>
   
   <script src="./src/secrets.js"></script>
+  <script src="./src/nodes.js"></script>
   <script src="./src/main.js"></script>
+  <script src="./src/navigation.js"></script>
 </body>
 </html>
