@@ -12,10 +12,10 @@ const getTrendingMoviesPreview = async () => {
   const {data, status} = await API.get(`/trending/movie/day`);
   const movies = data.results;
   console.log('movies: ',movies);
-  movies.forEach(movie => {
-    const trendingMoviesPreviewList = document.querySelector
-    ('#trendingPreview .trendingPreview-movieList');
 
+  trendingMoviesPreviewList.innerHTML = "";
+
+  movies.forEach(movie => {
     const movieContainer = document.createElement('div');
     movieContainer.classList.add('movie-container');
 
@@ -36,10 +36,10 @@ const getCategoriesPreview = async () => {
   const {data, status} = await API.get(`/genre/movie/list`);
   const categories = data.genres;
   console.log('categories: ',categories);
-  categories.forEach(category => {
-    const categoriesPreviewList = document.querySelector
-    ('#categoriesPreview .categoriesPreview-list');
 
+  categoriesPreviewList.innerHTML = "";
+
+  categories.forEach(category => {
     const categoryContainer = document.createElement('div');
     categoryContainer.classList.add('category-container');
 
