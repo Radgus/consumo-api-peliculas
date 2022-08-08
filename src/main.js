@@ -8,6 +8,28 @@ const API = axios.create({
   }
 });
 
+const likedMoviesList = () => {
+  const item = JSON.parse(localStorage.getItem('liked_movies'));
+  let movies;
+
+  if (item) {
+    movies = item;
+  } else {
+    movies = {}
+  }
+  return movies;
+}
+
+const likeMovie = (movie) => {
+  const likedMovies = likedMoviesList();
+  if (likedMovies[movie.id]) {
+    likedMovies[movie.id] = undefined;
+  } else {
+    likedMovies[movie.id] = movie;
+  }
+  localStorage.setItem('liked_movies',JSON.stringify(likedMovies));
+}
+
 // ***********************
 // llamados a la API
 
@@ -33,9 +55,9 @@ const createMovies = (
   movies.forEach(movie => {
     const movieContainer = document.createElement('div');
     movieContainer.classList.add('movie-container');
-    movieContainer.addEventListener('click', () => {
-      location.hash=`#movie=${movie.id}`
-    });
+    // movieContainer.addEventListener('click', () => {
+    //   location.hash=`#movie=${movie.id}`
+    // });
 
     const movieImg = document.createElement('img');
     movieImg.classList.add('movie-img');
@@ -45,11 +67,25 @@ const createMovies = (
       `https://image.tmdb.org/t/p/w300${movie.poster_path}`
     );
 
+    movieImg.addEventListener('click', () => {
+      location.hash=`#movie=${movie.id}`
+    });
+
+    const movieBtn = document.createElement('button');
+    movieBtn.classList.add('movie-btn');
+    movieBtn.addEventListener('click', () => {
+      movieBtn.classList.toggle('movie-btn--liked');
+      likeMovie(movie);
+    });
+
+
+
     if (lazyLoad) {
       lazyLoader.observe(movieImg);
     }
 
     movieContainer.appendChild(movieImg);
+    movieContainer.appendChild(movieBtn);
     container.appendChild(movieContainer);
   });
 }
